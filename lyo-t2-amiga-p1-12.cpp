@@ -1,20 +1,61 @@
-// lyo-t2-amiga-p1-12.cpp : Ce fichier contient la fonction 'main'. L'exécution du programme commence et se termine à cet endroit.
-//
-
 #include <iostream>
+#include <SDL.h>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+// You shouldn't really use this statement, but it's fine for small programs
+using namespace std;
+
+// You must include the command line parameters for your main function to be recognized by SDL
+int main(int argc, char** args) {
+
+	// Pointers to our window and surface
+	SDL_Surface* winSurface = NULL;
+	SDL_Window* window = NULL;
+
+	// Initialize SDL. SDL_Init will return -1 if it fails.
+	if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+		cout << "Error initializing SDL: " << SDL_GetError() << endl;
+		system("pause");
+		// End the program
+		return 1;
+	}
+
+	// Create our window
+	window = SDL_CreateWindow("Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 720, SDL_WINDOW_SHOWN);
+
+	// Make sure creating the window succeeded
+	if (!window) {
+		cout << "Error creating window: " << SDL_GetError() << endl;
+		system("pause");
+		// End the program
+		return 1;
+	}
+
+	// Get the surface from the window
+	winSurface = SDL_GetWindowSurface(window);
+
+	// Make sure getting the surface succeeded
+	if (!winSurface) {
+		cout << "Error getting surface: " << SDL_GetError() << endl;
+		system("pause");
+		// End the program
+		return 1;
+	}
+
+	// Fill the window with a white rectangle
+	SDL_FillRect(winSurface, NULL, SDL_MapRGB(winSurface->format, 255, 255, 255));
+
+	// Update the window display
+	SDL_UpdateWindowSurface(window);
+
+	// Wait
+	system("pause");
+
+	// Destroy the window. This will also destroy the surface
+	SDL_DestroyWindow(window);
+
+	// Quit SDL
+	SDL_Quit();
+
+	// End the program
+	return 0;
 }
-
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
-// Astuces pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
