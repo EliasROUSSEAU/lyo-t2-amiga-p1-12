@@ -131,11 +131,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="lyo-t2-amiga-p1-12.cpp" />
-    <ClCompile Include="SDL.h" />
-    <ClCompile Include="WindowSprite.h" />
+    <ClCompile Include="Balle_SDL.h" />
+    <ClCompile Include="WindowSprite.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Raylib.h" />
+    <ClInclude Include="SDLWindow.h" />
+    <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Window.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
