@@ -21,7 +21,10 @@
     <ClCompile Include="Balle_SDL.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClCompile>
-    <ClCompile Include="WindowSprite.cpp">
+    <ClCompile Include="Balle_SDL.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="SDLWindow.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

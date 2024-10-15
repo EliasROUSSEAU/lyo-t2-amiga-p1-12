@@ -3,8 +3,12 @@
 
 class Window {
 public:
-    virtual void create() = 0;
-    virtual void close() = 0;
+    virtual void Init() = 0;
+    virtual void Surface()= 0;
+    virtual void Draw()= 0;
+    virtual void FPS()= 0;
+    virtual void Create() = 0;
+    virtual void Close() = 0;
 
     virtual ~Window() {}
 };
