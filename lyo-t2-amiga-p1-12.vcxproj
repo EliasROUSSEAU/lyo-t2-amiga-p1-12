@@ -131,7 +131,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Balle_SDL.cpp" />
-    <ClCompile Include="lyo-t2-amiga-p1-12.cpp" />
+    <ClCompile Include="Main.cpp" />
     <ClCompile Include="Balle_SDL.h" />
     <ClCompile Include="SDLWindow.cpp" />
   </ItemGroup>
