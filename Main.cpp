@@ -1,15 +1,14 @@
 #define SDL_MAIN_HANDLED
 #include <iostream>
 #include <SDL2/SDL.h>
-#include <cmath>
 #include "SDLWindow.h"
+#include "SDLSprite.h"
 
-int main(int argc, char* argv[])
-{
+int main(int argc, char* argv[]) {
     SDLWindow window("Test Window", 640, 480);
-
     window.Init();
-    window.Create();
+
+    SDLSprite mySprite(window.GetRenderer(), "C:\\Users\\elrousseau\\Documents\\lyo-t2-amiga-p1-12\\Boule.bmp", 100, 100, 50, 50);
 
     bool running = true;
     SDL_Event event;
@@ -20,13 +19,15 @@ int main(int argc, char* argv[])
                 running = false;
             }
         }
+
         window.Surface();
         window.Draw();
+
+        window.DrawSprite(mySprite);
 
         SDL_Delay(16);
     }
 
     window.Close();
-
     return 0;
 }

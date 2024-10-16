@@ -130,13 +130,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Balle_SDL.cpp" />
+    <ClCompile Include="Balle.cpp" />
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Balle_SDL.h" />
+    <ClCompile Include="Balle.h" />
+    <ClCompile Include="SDLSprite.cpp" />
     <ClCompile Include="SDLWindow.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Raylib.h" />
+    <ClInclude Include="SDLSprite.h" />
     <ClInclude Include="SDLWindow.h" />
     <ClInclude Include="Sprite.h" />
     <ClInclude Include="Window.h" />
