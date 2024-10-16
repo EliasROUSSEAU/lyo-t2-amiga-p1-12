@@ -19,7 +19,6 @@ SDLWindow::~SDLWindow()
 void SDLWindow::Init()
 {
     SDL_Init(SDL_INIT_VIDEO);
-    Create();
     renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
     if (!renderer) {
         std::cout << "Failed to create renderer! Error: " << SDL_GetError() << std::endl;

@@ -26,6 +26,9 @@ void SDLSprite::LoadTexture() {
     if (!texture) {
         std::cerr << "Erreur de création de la texture: " << SDL_GetError() << std::endl;
     }
+    else {
+        std::cout << "Texture chargée avec succès: " << texturePath << std::endl;
+    }
 }
 
 void SDLSprite::SetPosition(float x, float y) {
