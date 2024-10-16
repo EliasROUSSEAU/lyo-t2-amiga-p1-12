@@ -19,9 +19,9 @@ public:
 
     void SetPosition(int _x, int _y);
     void SetSpeed(int _xspeed, int _yspeed);
-    void GetPosition(int& out_x, int& out_y);
-    void GetSpeed(int& out_xspeed, int& out_yspeed);
-    int GetRadius();
+    float GetPosX();
+    float GetPosY();
+    float GetRadius();
     void Update();
 };
 

@@ -15,17 +15,15 @@ void Balle::SetSpeed(int _xspeed, int _yspeed) {
     yspeed = _yspeed;
 }
 
-void Balle::GetPosition(int& out_x, int& out_y) {
-    out_x = x;
-    out_y = y;
+float Balle::GetPosX() {
+    return x;
 }
 
-void Balle::GetSpeed(int& out_xspeed, int& out_yspeed) {
-    out_xspeed = xspeed;
-    out_yspeed = yspeed;
+float Balle::GetPosY() {
+    return y;
 }
 
-int Balle::GetRadius() {
+float Balle::GetRadius() {
     return radius;
 }
 

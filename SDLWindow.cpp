@@ -19,7 +19,7 @@ SDLWindow::~SDLWindow()
 void SDLWindow::Init()
 {
     SDL_Init(SDL_INIT_VIDEO);
-    Create(); // Créer la fenêtre avant le renderer
+    Create();
     renderer = SDL_CreateRenderer(win, -1, SDL_RENDERER_ACCELERATED);
     if (!renderer) {
         std::cout << "Failed to create renderer! Error: " << SDL_GetError() << std::endl;
@@ -38,11 +38,9 @@ void SDLWindow::Surface()
 void SDLWindow::Draw()
 {
     SDL_SetRenderDrawColor(renderer, 255, 90, 120, 255);
-    SDL_RenderClear(renderer); // Effacer l'écran
+    SDL_RenderClear(renderer);
 
-    // Dessiner les sprites ici
-
-    SDL_RenderPresent(renderer); // Mettre à jour l'écran
+    SDL_RenderPresent(renderer);
     FPS();
 }
 
@@ -84,19 +82,21 @@ void SDLWindow::Close()
 void SDLWindow::DrawSprite(Sprite& sprite)
 {
     if (auto* sdlSprite = dynamic_cast<SDLSprite*>(&sprite)) {
-        float x, y, width, height;
-        sdlSprite->GetPosition(x, y);
-        sdlSprite->GetSize(width, height);
+        float x = sdlSprite->GetPosX();
+        float y = sdlSprite->GetPosY();
+        float width = sdlSprite->GetSizeWidth();
+        float height = sdlSprite->GetSizeHeight();
         SDL_Rect rect = { static_cast<int>(x), static_cast<int>(y), static_cast<int>(width), static_cast<int>(height) };
 
         if (sdlSprite->GetTexture() == nullptr) {
             std::cout << "Texture is null!" << std::endl;
-            return; // Sortir si la texture est nulle
+            return;
         }
 
         SDL_RenderCopy(renderer, sdlSprite->GetTexture(), nullptr, &rect);
     }
 }
+
 
 SDL_Renderer* SDLWindow::GetRenderer()
 {
