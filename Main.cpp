@@ -20,7 +20,7 @@ int main(int argc, char* argv[]) {
             }
         }
 
-        window.Draw(); 
+        window.Draw(&sprite);
         SDL_Delay(16);
     }
 

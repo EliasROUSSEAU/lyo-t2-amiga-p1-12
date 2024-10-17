@@ -1,5 +1,6 @@
 #include "SDLSprite.h"
 
+
 SDLSprite::SDLSprite(SDL_Renderer* _renderer, const std::string& _texturePath, float x, float y, float width, float height)
     : renderer(_renderer), texturePath(_texturePath), texture(nullptr) {
     rect.x = static_cast<int>(x);
@@ -16,6 +17,10 @@ SDLSprite::~SDLSprite() {
 }
 
 void SDLSprite::LoadTexture() {
+    if (texture) {
+        SDL_DestroyTexture(texture);  // Détruire l'ancienne texture si elle existe déjà
+    }
+
     SDL_Surface* surface = SDL_LoadBMP(texturePath.c_str());
     if (!surface) {
         std::cerr << "Erreur de chargement de la texture: " << SDL_GetError() << std::endl;
@@ -30,6 +35,7 @@ void SDLSprite::LoadTexture() {
         std::cout << "Texture chargée avec succès: " << texturePath << std::endl;
     }
 }
+
 
 void SDLSprite::SetPosition(float x, float y) {
     rect.x = static_cast<int>(x);
