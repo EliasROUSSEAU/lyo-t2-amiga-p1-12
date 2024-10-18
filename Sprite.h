@@ -1,17 +1,21 @@
 #ifndef SPRITE_H__
 #define SPRITE_H__
 
-class Sprite {
+#include "Vect2.h"
+
+class Sprite
+{
 public:
-    virtual void LoadTexture() = 0;
-    virtual void SetPosition(float x, float y) = 0;
-    virtual float GetPosX() = 0;
-    virtual float GetPosY() = 0;
-    virtual void SetSize(float width, float height) = 0;
-    virtual float GetSizeWidth() = 0;
-    virtual float GetSizeHeight() = 0;
+    Sprite() : position(0, 0), velocity(100, 100) {} 
+        virtual ~Sprite();
+        virtual void setPosition(float x, float y) = 0;
+        virtual void draw(float x, float y, float radius) = 0;
+       // move()
+        virtual void update(float deltaTime, float, float) = 0;
 
-    virtual ~Sprite() {}
-};
+protected:
+    Vector2 position;
+    Vector2 velocity;
+    };
 
-#endif
+#endif 
